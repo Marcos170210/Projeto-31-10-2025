@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Music Play — Catálogo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>Music Play</h1>
+      <p class="lead">Catálogo de gêneros — clique para abrir no Spotify ou toque amostras locais</p>
+    </div>
+    <nav class="genre-nav" aria-label="Filtrar por gênero">
+      <button data-genre="all" class="active">Todas</button>
+      <button data-genre="sertanejo">Sertanejo</button>
+      <button data-genre="funk">Funk</button>
+      <button data-genre="rap">Rap</button>
+      <button data-genre="trap">Trap</button>
+    </nav>
+    <div class="controls">
+      <input id="search" placeholder="Buscar título ou artista" aria-label="Buscar música"/>
+    </div>
+    <div class="header-actions">
+      <button id="subscription-btn" class="sub-btn">Assinatura</button>
+    </div>
+
+    <!-- Player: display do track (controls moved para baixo) -->
+    <div id="player" class="player" aria-label="Player de música">
+      <div class="player-left">
+        <div class="now">
+          <div id="track-title">—</div>
+          <div id="track-artist" class="small">—</div>
+        </div>
+      </div>
+      <div style="margin-left:16px">
+        <select id="track-select" aria-label="Selecionar música"></select>
+      </div>
+      <audio id="audio" preload="none"></audio>
+    </div>
+  </header>
+
+  <!-- Use <section> para agrupar conteúdo principal (boa prática e acessibilidade) -->
+  <main>
+    <section id="catalog" class="grid" aria-live="polite"></section>
+    
+    <!-- Subscription panel (toggle) -->
+    <aside id="subscription-panel" class="subscription-panel" hidden>
+      <h2>Planos de Assinatura</h2>
+      <div class="plans">
+        <div class="plan">
+          <h3>Básico</h3>
+          <p class="price">R$ 30,99 / mês</p>
+          <p>Inclui playback de prévias e acesso básico ao catálogo.</p>
+          <button class="subscribe-btn" data-plan="basico">Assinar R$30,99</button>
+        </div>
+        <div class="plan premium">
+          <h3>Premium</h3>
+          <p class="price">R$ 300,00 / ano</p>
+          <p>Inclui prévias e prioridade — plano anual mais completo.</p>
+          <button class="subscribe-btn" data-plan="premium">Assinar R$300,00</button>
+        </div>
+      </div>
+      <button id="close-sub" class="close-sub">Fechar</button>
+    </aside>
+  </main>
+
+  <footer>
+    <small>Projeto educativo — Do Zero ao Deploy. Consulte o README para instruções de deploy.</small>
+  </footer>
+
+  <!-- Bottom player controls (sticky) -->
+  <div id="bottom-player" class="bottom-player" aria-hidden="false">
+    <button id="prev-btn" title="Anterior">⏮</button>
+    <button id="play-btn" title="Play/Pausa">▶️</button>
+    <button id="next-btn" title="Próxima">⏭</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

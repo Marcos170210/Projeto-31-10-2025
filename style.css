@@ -1,0 +1,115 @@
+/* style.css - Estilos base e estilo de card estilo "Spotify" */
+
+:root{
+  --bg: #0e0f10;
+  --card-start: #1db954;
+  --card-end: #15883e;
+  --muted: rgba(255,255,255,0.85);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0;
+  padding:24px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,#070708 0%, #0f1112 100%);
+  color:var(--muted);
+}
+header h1{margin:0 0 8px 0}
+.subtitle{margin:4px 0 16px 0; color:rgba(255,255,255,0.7)}
+
+/* grid responsivo para os cards */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+  gap:16px;
+}
+
+/* Card estilo Spotify */
+.musica-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  padding:10px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  color:#fff;
+  text-decoration:none;
+  transition:transform .12s ease,box-shadow .12s ease;
+}
+
+.musica-card:hover{transform: translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,0.5)}
+.musica-card img{width:72px; height:72px; border-radius:8px; object-fit:cover}
+
+.musica-info{display:flex; flex-direction:column}
+.titulo{font-weight:700; font-size:1rem}
+.artista{font-size:0.9rem; opacity:0.95}
+
+footer{margin-top:22px; color:rgba(255,255,255,0.6)}
+
+/* responsividade simples */
+@media (max-width:420px){
+  .musica-card{padding:10px}
+  .musica-card img{width:56px;height:56px}
+ }
+
+/* Layout base */
+.site-header{display:flex;align-items:center;gap:16px;justify-content:space-between;margin-bottom:18px}
+.brand h1{margin:0;font-size:1.4rem}
+.brand .lead{margin:4px 0 0 0;color:rgba(255,255,255,0.7)}
+.genre-nav{display:flex;gap:8px}
+.genre-nav button{background:var(--glass);border:0;padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer}
+.genre-nav button.active{background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));box-shadow:0 6px 18px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.04)}
+.controls input{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);min-width:200px}
+
+/* Player styles */
+.player{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+.player-left{min-width:220px}
+.player .now{display:flex;flex-direction:column}
+#track-title{font-weight:700}
+.small{font-size:0.85rem;opacity:0.9}
+.player-controls{display:flex;align-items:center;gap:8px;margin-left:auto}
+.player-controls button{background:transparent;border:0;color:var(--muted);font-size:16px;padding:8px;cursor:pointer;border-radius:8px}
+.player-controls button:hover{background:rgba(255,255,255,0.02)}
+.player-controls select{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px}
+
+/* grid responsivo para os cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+
+/* Card estilo profissional */
+.musica-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:10px;display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none;transition:transform .12s ease,box-shadow .12s ease}
+.musica-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+.musica-card .thumb{width:72px;height:72px;border-radius:10px;overflow:hidden;flex:0 0 72px}
+.musica-card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.musica-info{display:flex;flex-direction:column}
+.musica-info .titulo{font-weight:700;font-size:1rem}
+.musica-info .artista{font-size:0.9rem;opacity:0.9}
+.play-btn{margin-left:auto;background:var(--accent);color:#050505;padding:8px 12px;border-radius:8px;font-weight:700;border:0;cursor:pointer}
+
+footer{margin-top:28px;color:rgba(255,255,255,0.6)}
+
+@media (max-width:520px){.site-header{flex-direction:column;align-items:flex-start}.controls input{width:100%}.genre-nav{flex-wrap:wrap}}
+  
+@media (max-width:720px){
+  .player{flex-direction:column;align-items:flex-start;width:100%}
+  .player-controls{width:100%;justify-content:space-between}
+}
+
+/* Bottom sticky player */
+.bottom-player{position:sticky;bottom:18px;display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;background:linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.2));backdrop-filter:blur(6px);box-shadow:0 8px 24px rgba(2,6,23,0.6);z-index:40;margin-top:18px}
+.bottom-player button{background:linear-gradient(90deg,var(--card-start),var(--card-end));border:0;color:#04120b;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:700}
+.sub-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+/* Subscription panel */
+.subscription-panel{background:linear-gradient(180deg,#0f1112,#0b0c0d);border:1px solid rgba(255,255,255,0.03);padding:18px;border-radius:12px;margin-top:18px}
+.subscription-panel .plans{display:flex;gap:12px}
+.subscription-panel .plan{flex:1;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+.subscription-panel .plan.premium{border:1px solid rgba(255,215,0,0.08)}
+.subscription-panel .price{font-weight:800;font-size:1.2rem}
+.subscribe-btn{margin-top:8px;padding:8px 12px;border-radius:8px;border:0;background:var(--card-start);color:#05130d;cursor:pointer}
+.close-sub{margin-top:12px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 10px;border-radius:8px}
+
+@media (max-width:720px){
+  .subscription-panel .plans{flex-direction:column}
+}
