@@ -40,7 +40,7 @@ const musicas = [
     artista: 'Bruno & Marrone', 
     genero: 'sertanejo', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273c6b6bed8f619af34c858c254',
-    spotifyUrl: https://open.spotify.com/intl-pt/track/4Z20Nlp53CuArdsy0VbeTb'
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/4Z20Nlp53CuArdsy0VbeTb'
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' 
   },
   { 
@@ -48,7 +48,7 @@ const musicas = [
     artista: 'Jorge & Mateus', 
     genero: 'sertanejo', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273ffd5a4d45ac36515b2a06f9d',
-    spotifyUrl: //open.spotify.com/intl-pt/track/4qsOrxBv09HhNSpsgMRXdC',' 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/4qsOrxBv09HhNSpsgMRXdC', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' 
   },
   { 
@@ -65,7 +65,7 @@ const musicas = [
     artista: 'Anitta, Mc Zaac', 
     genero: 'funk', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273854ba82366475ddee4d54c5f',
-    spotifyUrl: 'https://open.spotify.com/intl-pt/track/6u0EAxf1OJTLS7CvInuNd7,'
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/6u0EAxf1OJTLS7CvInuNd7',
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' 
   },
   { 
@@ -128,8 +128,10 @@ const musicas = [
   },
 ];
 
-// Player state
+// Estados do player e da interface
 let currentIndex = -1;
+let currentFilter = 'all';
+let currentSearch = '';
 const audio = document.getElementById('audio');
 const trackTitle = document.getElementById('track-title');
 const trackArtist = document.getElementById('track-artist');
@@ -221,6 +223,60 @@ document.addEventListener('click', (e)=>{
   }
 });
 
+// Função para renderizar lista de músicas
+function renderMusicList(lista, container) {
+  if(lista.length === 0){
+    container.innerHTML = '<div class="empty">Nenhuma música encontrada.</div>';
+    return;
+  }
+
+  lista.forEach(m => {
+    const globalIndex = musicas.indexOf(m);
+    const div = document.createElement('div');
+    div.className = 'musica-card';
+
+    const isFavorito = favoritos.includes(globalIndex);
+    const isInPlaylist = playlist.includes(globalIndex);
+
+    div.innerHTML = `
+      <div class="musica-img" onclick="loadTrack(${globalIndex}, true)">
+        <img src="${m.cover}" alt="${m.titulo} capa" onerror="this.src='https://via.placeholder.com/300/222/fff?text=?'">
+        <div class="hover-overlay">
+          <button class="play-overlay-btn">▶</button>
+        </div>
+      </div>
+      <div class="musica-info">
+        <a href="${m.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="titulo">${m.titulo}</a>
+        <div class="artista">${m.artista}</div>
+      </div>
+      <div class="card-actions">
+        <button class="action-btn favorite-btn ${isFavorito ? 'active' : ''}" title="${isFavorito ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}">
+          ${isFavorito ? '♥' : '♡'}
+        </button>
+        <button class="action-btn playlist-btn ${isInPlaylist ? 'active' : ''}" title="${isInPlaylist ? 'Remover da playlist' : 'Adicionar à playlist'}">
+          ${isInPlaylist ? '✓' : '+'}
+        </button>
+      </div>
+    `;
+
+    const favBtn = div.querySelector('.favorite-btn');
+    favBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleFavorito(globalIndex);
+    });
+
+    const playlistBtn = div.querySelector('.playlist-btn');
+    playlistBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      togglePlaylist(globalIndex);
+    });
+
+    container.appendChild(div);
+  });
+}
+
 // Renderiza a lista no container #catalog
 function renderMusicas(filterGenre = 'all', query = ''){
   const container = document.getElementById('catalog');
@@ -292,60 +348,6 @@ function renderMusicas(filterGenre = 'all', query = ''){
       }
     });
   }
-
-function renderMusicList(lista, container) {
-  if(lista.length === 0){
-    container.innerHTML = '<div class="empty">Nenhuma música encontrada.</div>';
-    return;
-  }
-
-  lista.forEach(m => {
-    const globalIndex = musicas.indexOf(m);
-    const div = document.createElement('div');
-    div.className = 'musica-card';
-
-    const isFavorito = favoritos.includes(globalIndex);
-    const isInPlaylist = playlist.includes(globalIndex);
-
-    div.innerHTML = `
-      <div class="musica-img" onclick="loadTrack(${globalIndex}, true)">
-        <img src="${m.cover}" alt="${m.titulo} capa" onerror="this.src='https://via.placeholder.com/300/222/fff?text=?'">
-        <div class="hover-overlay">
-          <button class="play-overlay-btn">▶</button>
-        </div>
-      </div>
-      <div class="musica-info">
-        <a href="${m.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="titulo">${m.titulo}</a>
-        <div class="artista">${m.artista}</div>
-      </div>
-      <div class="card-actions">
-        <button class="action-btn favorite-btn ${isFavorito ? 'active' : ''}" title="${isFavorito ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}">
-          ${isFavorito ? '♥' : '♡'}
-        </button>
-        <button class="action-btn playlist-btn ${isInPlaylist ? 'active' : ''}" title="${isInPlaylist ? 'Remover da playlist' : 'Adicionar à playlist'}">
-          ${isInPlaylist ? '✓' : '+'}
-        </button>
-      </div>
-    `;
-
-    const favBtn = div.querySelector('.favorite-btn');
-    favBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleFavorito(globalIndex);
-    });
-
-    const playlistBtn = div.querySelector('.playlist-btn');
-    playlistBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      togglePlaylist(globalIndex);
-    });
-
-    container.appendChild(div);
-  });
-}
-  });
 }
 
 // Inicialização e handlers
@@ -360,9 +362,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   nav.forEach(b=>{
     b.addEventListener('click', ()=>{
-      const g = b.getAttribute('data-genre');
+      const section = b.getAttribute('data-section');
+      const genre = b.getAttribute('data-genre');
       setActive(b);
-      renderMusicas(g, search.value);
+      renderMusicas(section || genre, search.value);
     });
   });
 
