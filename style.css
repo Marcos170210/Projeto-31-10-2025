@@ -55,10 +55,11 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
  }
 
 /* Layout base */
-.site-header{display:flex;align-items:center;gap:16px;justify-content:space-between;margin-bottom:18px}
+.site-header{display:flex;align-items:start;gap:24px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:32px}
 .brand h1{margin:0;font-size:1.4rem}
-.brand .lead{margin:4px 0 0 0;color:rgba(255,255,255,0.7)}
-.genre-nav{display:flex;gap:8px}
+.brand .lead{margin:0;color:rgba(255,255,255,0.7)}
+.genre-nav{display:flex;gap:8px;flex-direction:column}
 .genre-nav button{background:var(--glass);border:0;padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer}
 .genre-nav button.active{background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));box-shadow:0 6px 18px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.04)}
 .controls input{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);min-width:200px}
@@ -89,7 +90,12 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
 
 footer{margin-top:28px;color:rgba(255,255,255,0.6)}
 
-@media (max-width:520px){.site-header{flex-direction:column;align-items:flex-start}.controls input{width:100%}.genre-nav{flex-wrap:wrap}}
+@media (max-width:768px){
+  .site-header{flex-direction:column}
+  .brand{flex-direction:column;align-items:flex-start;gap:8px}
+  .controls input{width:100%}
+  .genre-nav{flex-direction:row;flex-wrap:wrap}
+}
   
 @media (max-width:720px){
   .player{flex-direction:column;align-items:flex-start;width:100%}
