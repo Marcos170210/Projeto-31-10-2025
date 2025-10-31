@@ -40,7 +40,7 @@ const musicas = [
     artista: 'Bruno & Marrone', 
     genero: 'sertanejo', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273c6b6bed8f619af34c858c254',
-    spotifyUrl: https://open.spotify.com/intl-pt/track/4Z20Nlp53CuArdsy0VbeTb
+    spotifyUrl: https://open.spotify.com/intl-pt/track/4Z20Nlp53CuArdsy0VbeTb'
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' 
   },
   { 
@@ -48,7 +48,7 @@ const musicas = [
     artista: 'Jorge & Mateus', 
     genero: 'sertanejo', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273ffd5a4d45ac36515b2a06f9d',
-    spotifyUrl: //open.spotify.com/intl-pt/track/4qsOrxBv09HhNSpsgMRXdC', 
+    spotifyUrl: //open.spotify.com/intl-pt/track/4qsOrxBv09HhNSpsgMRXdC',' 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' 
   },
   { 
@@ -65,7 +65,7 @@ const musicas = [
     artista: 'Anitta, Mc Zaac', 
     genero: 'funk', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273854ba82366475ddee4d54c5f',
-    spotifyUrl: 'https://open.spotify.com/intl-pt/track/6u0EAxf1OJTLS7CvInuNd7, 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/6u0EAxf1OJTLS7CvInuNd7,'
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' 
   },
   { 
@@ -229,20 +229,71 @@ function renderMusicas(filterGenre = 'all', query = ''){
   currentSearch = query;
 
   let lista = musicas;
+  const generos = ['sertanejo', 'funk', 'rap', 'trap'];
   
-  // Filtra por seção especial (favoritos/playlist) ou por gênero
-  if (filterGenre === 'favorites') {
-    lista = musicas.filter((_, index) => favoritos.includes(index));
-  } else if (filterGenre === 'playlist') {
-    lista = musicas.filter((_, index) => playlist.includes(index));
-  } else if (filterGenre !== 'all') {
-    lista = musicas.filter(m => m.genero === filterGenre);
+  // Se tiver busca, mostra resultados direto
+  const q = query.trim().toLowerCase();
+  if (q !== '') {
+    lista = musicas.filter(m => (m.titulo + ' ' + m.artista).toLowerCase().includes(q));
+    renderMusicList(lista, container);
+    return;
   }
 
-  // Aplica filtro de busca
-  const q = query.trim().toLowerCase();
-  lista = lista.filter(m => q === '' || (m.titulo + ' ' + m.artista).toLowerCase().includes(q));
+  // Filtra por seção especial (favoritos/playlist)
+  if (filterGenre === 'favorites') {
+    lista = musicas.filter((_, index) => favoritos.includes(index));
+    renderMusicList(lista, container);
+    return;
+  } else if (filterGenre === 'playlist') {
+    lista = musicas.filter((_, index) => playlist.includes(index));
+    renderMusicList(lista, container);
+    return;
+  }
 
+  // Renderiza pasta específica ou todas as pastas
+  if (filterGenre !== 'all') {
+    lista = musicas.filter(m => m.genero === filterGenre);
+    renderMusicList(lista, container);
+  } else {
+    // Renderiza todas as pastas
+    generos.forEach(genero => {
+      const musicasGenero = musicas.filter(m => m.genero === genero);
+      if (musicasGenero.length > 0) {
+        const folder = document.createElement('div');
+        folder.className = 'folder-card';
+        
+        const generoFormatado = genero.charAt(0).toUpperCase() + genero.slice(1);
+        
+        folder.innerHTML = `
+          <div class="folder-header" data-genre="${genero}">
+            <div class="folder-icon">📁</div>
+            <div class="folder-info">
+              <h2>${generoFormatado}</h2>
+              <span>${musicasGenero.length} músicas</span>
+            </div>
+            <div class="folder-preview">
+              ${musicasGenero.slice(0, 4).map(m => `
+                <div class="preview-thumb">
+                  <img src="${m.cover}" alt="${m.titulo}">
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+
+        folder.addEventListener('click', (e) => {
+          const genreBtn = document.querySelector(`.top-nav button[data-genre="${genero}"]`);
+          if (genreBtn) {
+            genreBtn.click();
+          }
+        });
+
+        container.appendChild(folder);
+      }
+    });
+  }
+
+function renderMusicList(lista, container) {
   if(lista.length === 0){
     container.innerHTML = '<div class="empty">Nenhuma música encontrada.</div>';
     return;
@@ -292,6 +343,8 @@ function renderMusicas(filterGenre = 'all', query = ''){
     });
 
     container.appendChild(div);
+  });
+}
   });
 }
 

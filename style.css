@@ -28,12 +28,79 @@ header h1{margin:0 0 8px 0}
 /* grid responsivo para os cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
   padding: 24px;
   max-width: 1400px;
   margin: 0 auto;
   align-items: start;
+}
+
+/* Estilo das pastas */
+.folder-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.folder-card:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.folder-icon {
+  font-size: 2.5em;
+  color: var(--muted);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.folder-info {
+  flex: 1;
+}
+
+.folder-info h2 {
+  margin: 0;
+  font-size: 1.4em;
+  color: #fff;
+}
+
+.folder-info span {
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+.folder-preview {
+  display: flex;
+  gap: 8px;
+}
+
+.preview-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.preview-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.folder-card:hover .preview-thumb img {
+  transform: scale(1.1);
 }
 
 /* Card estilo Spotify */
