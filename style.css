@@ -26,10 +26,13 @@ header h1{margin:0 0 8px 0}
 .subtitle{margin:4px 0 16px 0; color:rgba(255,255,255,0.7)}
 
 /* grid responsivo para os cards */
-.grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
-  gap:16px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Card estilo Spotify */
@@ -61,22 +64,25 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
  }
 
 /* Layout base */
-.sidebar {
-  width: 250px;
-  background: rgba(0,0,0,0.2);
-  padding: 24px;
-  border-right: 1px solid rgba(255,255,255,0.05);
-  min-height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  overflow-y: auto;
-}
-
 .main-content {
   flex: 1;
   padding: 24px;
-  margin-left: 250px;
+  padding-bottom: 200px;
+}
+
+.bottom-controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.95));
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 100;
 }
 
 .site-header {
@@ -98,9 +104,14 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
 
 .genre-nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
+
 .genre-nav button {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.1);
@@ -108,9 +119,9 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
   border-radius: 8px;
   color: var(--muted);
   cursor: pointer;
-  text-align: left;
-  width: 100%;
+  text-align: center;
   transition: all 0.2s ease;
+  flex: 0 1 auto;
 }
 
 .genre-nav button:hover {
@@ -217,34 +228,89 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 
 /* Card estilo profissional */
-.musica-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:10px;display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none;transition:transform .12s ease,box-shadow .12s ease}
-.musica-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.6)}
-.musica-card .thumb{width:72px;height:72px;border-radius:10px;overflow:hidden;flex:0 0 72px}
-.musica-card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.musica-info{display:flex;flex-direction:column}
-.musica-info .titulo{font-weight:700;font-size:1rem}
-.musica-info .artista{font-size:0.9rem;opacity:0.9}
-.card-actions {
-  margin-left: auto;
+.musica-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius: 16px;
+  padding: 20px;
   display: flex;
-  gap: 8px;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.musica-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+}
+
+.musica-card .thumb {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.musica-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.musica-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.musica-info .titulo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.musica-info .artista {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  color: var(--muted);
+}
+.card-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .action-btn {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.1);
   color: var(--muted);
-  padding: 6px 10px;
-  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   cursor: pointer;
   font-size: 1.1em;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .action-btn:hover {
   background: rgba(255,255,255,0.05);
   transform: translateY(-2px);
+  border-color: var(--card-start);
 }
 
 .action-btn.active {
@@ -254,29 +320,43 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
 }
 
 .play-btn-local {
-  background: var(--card-start);
+  background: linear-gradient(90deg, var(--card-start), var(--card-end));
   color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-weight: 700;
-  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
   cursor: pointer;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(29,185,84,0.2);
+}
+
+.play-btn-local:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(29,185,84,0.3);
 }
 
 @media (max-width:768px){
-  .sidebar {
-    transform: translateX(-100%);
-    z-index: 1000;
-    transition: transform 0.3s ease;
-  }
-  
-  .sidebar.active {
-    transform: translateX(0);
-  }
-  
   .main-content {
-    margin-left: 0;
     padding: 16px;
+    padding-bottom: 240px;
+  }
+  
+  .bottom-controls {
+    padding: 16px 12px;
+  }
+  
+  .genre-nav {
+    gap: 8px;
+  }
+  
+  .genre-nav button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
   }
   
   .site-header {
@@ -312,23 +392,18 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
 
 /* Bottom sticky player */
 .bottom-player {
-  position: fixed;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   gap: 16px;
   align-items: center;
   justify-content: center;
   padding: 16px 24px;
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.75));
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  z-index: 40;
+  background: rgba(0,0,0,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   width: auto;
   min-width: 320px;
   max-width: 90%;
+  margin: 0 auto;
 }
 
 .bottom-player button {
