@@ -32,7 +32,7 @@ const musicas = [
     artista: 'Chitãozinho & Xororó', 
     genero: 'sertanejo', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273f9a9cbee6858e231f7c1daf7',
-    spotifyUrl: 'https://open.spotify.com/track/2Lh9FW5RWmMtbxzgOdQicS', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/1X95pCQG939KCbJL6yVQgw', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' 
   },
   { 
@@ -250,19 +250,21 @@ function renderMusicas(filterGenre = 'all', query = ''){
 
   lista.forEach(m => {
     const globalIndex = musicas.indexOf(m);
-    const a = document.createElement('a');
-    a.className = 'musica-card';
-    a.href = m.spotifyUrl;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
+    const div = document.createElement('div');
+    div.className = 'musica-card';
 
     const isFavorito = favoritos.includes(globalIndex);
     const isInPlaylist = playlist.includes(globalIndex);
 
-    a.innerHTML = `
-      <div class="thumb"><img src="${m.cover}" alt="${m.titulo} capa" onerror="this.src='https://via.placeholder.com/72/222/fff?text=?'"></div>
+    div.innerHTML = `
+      <div class="musica-img" onclick="loadTrack(${globalIndex}, true)">
+        <img src="${m.cover}" alt="${m.titulo} capa" onerror="this.src='https://via.placeholder.com/300/222/fff?text=?'">
+        <div class="hover-overlay">
+          <button class="play-overlay-btn">▶</button>
+        </div>
+      </div>
       <div class="musica-info">
-        <div class="titulo">${m.titulo}</div>
+        <a href="${m.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="titulo">${m.titulo}</a>
         <div class="artista">${m.artista}</div>
       </div>
       <div class="card-actions">
@@ -272,7 +274,6 @@ function renderMusicas(filterGenre = 'all', query = ''){
         <button class="action-btn playlist-btn ${isInPlaylist ? 'active' : ''}" title="${isInPlaylist ? 'Remover da playlist' : 'Adicionar à playlist'}">
           ${isInPlaylist ? '✓' : '+'}
         </button>
-        <button class="play-btn-local">▶</button>
       </div>
     `;
 

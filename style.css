@@ -280,45 +280,91 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
 .musica-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
   border-radius: 16px;
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   color: #fff;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .musica-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
   background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
 }
 
-.musica-card .thumb {
-  width: 140px;
-  height: 140px;
+.musica-img {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Aspect ratio 1:1 */
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 16px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
-.musica-card .thumb img {
+.musica-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.musica-card:hover .hover-overlay {
+  opacity: 1;
+}
+
+.musica-card:hover .musica-img img {
+  transform: scale(1.1);
+}
+
+.play-overlay-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: var(--card-start);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.musica-card:hover .play-overlay-btn {
+  transform: scale(1);
+  background: linear-gradient(45deg, var(--card-start), var(--card-end));
+  box-shadow: 0 4px 20px rgba(29,185,84,0.5);
 }
 
 .musica-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 16px;
 }
 
@@ -326,27 +372,41 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
   font-weight: 700;
   font-size: 1.1rem;
   color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.musica-info .titulo:hover {
+  color: var(--card-start);
 }
 
 .musica-info .artista {
   font-size: 0.95rem;
   opacity: 0.9;
   color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .card-actions {
   display: flex;
   gap: 12px;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .action-btn {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.1);
   color: var(--muted);
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 1.1em;
