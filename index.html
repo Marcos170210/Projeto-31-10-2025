@@ -19,7 +19,16 @@
             <div class="controls">
               <input id="search" placeholder="Buscar título ou artista" aria-label="Buscar música"/>
             </div>
-            <button id="subscription-btn" class="sub-btn">Assinatura</button>
+            <nav class="top-nav" aria-label="Filtrar por gênero">
+              <button data-genre="all" class="active">Todas</button>
+              <button data-genre="sertanejo">Sertanejo</button>
+              <button data-genre="funk">Funk</button>
+              <button data-genre="rap">Rap</button>
+              <button data-genre="trap">Trap</button>
+              <button data-section="favorites" class="special-btn"><span class="icon">♥</span> Favoritos</button>
+              <button data-section="playlist" class="special-btn"><span class="icon">▶</span> Playlist</button>
+              <button id="subscription-btn" class="sub-btn">Assinatura</button>
+            </nav>
           </div>
           <audio id="audio" preload="none"></audio>
         </div>
@@ -52,23 +61,11 @@
     </div>
 
     <!-- Bottom player controls (sticky) -->
-  <div class="bottom-controls">
-    <nav class="genre-nav" aria-label="Filtrar por gênero">
-      <button data-genre="all" class="active">Todas</button>
-      <button data-genre="sertanejo">Sertanejo</button>
-      <button data-genre="funk">Funk</button>
-      <button data-genre="rap">Rap</button>
-      <button data-genre="trap">Trap</button>
-      <button data-section="favorites" class="special-btn"><span class="icon">♥</span> Favoritos</button>
-      <button data-section="playlist" class="special-btn"><span class="icon">▶</span> Playlist</button>
-    </nav>
-
-    <div id="bottom-player" class="bottom-player" aria-hidden="false">
-      <button id="prev-btn" title="Anterior">⏮</button>
-      <button id="play-btn" title="Play/Pausa">▶️</button>
-      <button id="next-btn" title="Próxima">⏭</button>
-      <select id="track-select" aria-label="Selecionar música"></select>
-    </div>
+  <div id="bottom-player" class="bottom-player" aria-hidden="false">
+    <button id="prev-btn" title="Anterior">⏮</button>
+    <button id="play-btn" title="Play/Pausa">▶️</button>
+    <button id="next-btn" title="Próxima">⏭</button>
+    <select id="track-select" aria-label="Selecionar música"></select>
   </div>  <script src="app.js"></script>
 </body>
 </html>
