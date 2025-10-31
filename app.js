@@ -27,18 +27,21 @@ function togglePlaylist(musicaIndex) {
 }
 
 const musicas = [
-  { titulo: 'Romance Sertanejo', artista: 'Dupla A', genero: 'sertanejo', cover: 'genres/sertanejo/cover1.svg', spotifyUrl: 'https://open.spotify.com/search/romance%20sertanejo', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
-  { titulo: 'Balada na Fazenda', artista: 'Dupla B', genero: 'sertanejo', cover: 'genres/sertanejo/cover2.svg', spotifyUrl: 'https://open.spotify.com/search/sertanejo', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
-  { titulo: 'Coração na Estrada', artista: 'Dupla C', genero: 'sertanejo', cover: 'genres/sertanejo/cover3.svg', spotifyUrl: 'https://open.spotify.com/search/sertanejo', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
+  { titulo: 'Evidências', artista: 'Chitãozinho & Xororó', genero: 'sertanejo', cover: 'genres/sertanejo/cover1.svg', spotifyUrl: 'https://open.spotify.com/track/2Lh9FW5RWmMtbxzgOdQicS', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
+  { titulo: 'Boate Azul', artista: 'Bruno & Marrone', genero: 'sertanejo', cover: 'genres/sertanejo/cover2.svg', spotifyUrl: 'https://open.spotify.com/track/4W2A4OVZ0H9r0PF0ZuN4mC', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
+  { titulo: 'Esqueça-me se For Capaz', artista: 'Jorge & Mateus', genero: 'sertanejo', cover: 'genres/sertanejo/cover3.svg', spotifyUrl: 'https://open.spotify.com/track/4FSzJpXqFDtPtVtGZMqs4P', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
+  { titulo: 'Todo Mundo Vai Sofrer', artista: 'Marília Mendonça', genero: 'sertanejo', cover: 'genres/sertanejo/cover4.svg', spotifyUrl: 'https://open.spotify.com/track/4kF4ZYJKfGpGurPQJV5Rtt', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
 
-  { titulo: 'Funk na Quebrada', artista: 'MC X', genero: 'funk', cover: 'genres/funk/cover1.svg', spotifyUrl: 'https://open.spotify.com/search/funk', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
-  { titulo: 'Senta e Rebola', artista: 'MC Y', genero: 'funk', cover: 'genres/funk/cover2.svg', spotifyUrl: 'https://open.spotify.com/search/funk', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
+  { titulo: 'Vai Malandra', artista: 'Anitta, Mc Zaac', genero: 'funk', cover: 'genres/funk/cover1.svg', spotifyUrl: 'https://open.spotify.com/track/2HcXzqQP9YEjsKX9kKRHwa', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
+  { titulo: 'Amor de Que', artista: 'Pabllo Vittar', genero: 'funk', cover: 'genres/funk/cover2.svg', spotifyUrl: 'https://open.spotify.com/track/2uYFUQP5REqXUQQJkpwBXH', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
+  { titulo: 'Envolvimento', artista: 'MC Loma', genero: 'funk', cover: 'genres/funk/cover3.svg', spotifyUrl: 'https://open.spotify.com/track/2uYFUQP5REqXUQQJkpwBXH', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
+  { titulo: 'Baile de Favela', artista: 'MC João', genero: 'funk', cover: 'genres/funk/cover4.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' },
 
-  { titulo: 'Flow Pesado', artista: 'Rapper A', genero: 'rap', cover: 'genres/rap/cover1.svg', spotifyUrl: 'https://open.spotify.com/search/rap', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
-  { titulo: 'Rimas da Rua', artista: 'Rapper B', genero: 'rap', cover: 'genres/rap/cover2.svg', spotifyUrl: 'https://open.spotify.com/search/rap', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
+  { titulo: 'Malvadão 3', artista: 'Xamã', genero: 'rap', cover: 'genres/rap/cover1.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3' },
+  { titulo: 'Volta por Cima', artista: 'L7NNON', genero: 'rap', cover: 'genres/rap/cover2.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3' },
 
-  { titulo: 'Trap Nights', artista: 'Producer T', genero: 'trap', cover: 'genres/trap/cover1.svg', spotifyUrl: 'https://open.spotify.com/search/trap', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' },
-  { titulo: '808 Dreams', artista: 'Artist Z', genero: 'trap', cover: 'genres/trap/cover2.svg', spotifyUrl: 'https://open.spotify.com/search/trap', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3' },
+  { titulo: 'Vampiro', artista: 'Matuê', genero: 'trap', cover: 'genres/trap/cover1.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3' },
+  { titulo: 'M4', artista: 'Teto', genero: 'trap', cover: 'genres/trap/cover2.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3' },
 ];
 
 // Player state
