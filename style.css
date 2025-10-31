@@ -167,25 +167,6 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
   margin-bottom: 24px;
 }
 
-.player-left {
-  min-width: 200px;
-}
-
-.player .now {
-  display: flex;
-  flex-direction: column;
-}
-
-#track-title {
-  font-weight: 700;
-  color: #fff;
-}
-
-.small {
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
 .player-controls {
   display: flex;
   align-items: center;
