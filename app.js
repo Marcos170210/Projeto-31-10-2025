@@ -40,7 +40,7 @@ const musicas = [
     artista: 'Bruno & Marrone', 
     genero: 'sertanejo', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273c6b6bed8f619af34c858c254',
-    spotifyUrl: 'https://open.spotify.com/track/4W2A4OVZ0H9r0PF0ZuN4mC', 
+    spotifyUrl: https://open.spotify.com/intl-pt/track/4Z20Nlp53CuArdsy0VbeTb
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' 
   },
   { 
@@ -48,7 +48,7 @@ const musicas = [
     artista: 'Jorge & Mateus', 
     genero: 'sertanejo', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273ffd5a4d45ac36515b2a06f9d',
-    spotifyUrl: 'https://open.spotify.com/track/4FSzJpXqFDtPtVtGZMqs4P', 
+    spotifyUrl: //open.spotify.com/intl-pt/track/4qsOrxBv09HhNSpsgMRXdC', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' 
   },
   { 
@@ -56,7 +56,7 @@ const musicas = [
     artista: 'Marília Mendonça', 
     genero: 'sertanejo', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273374058b1c48517c8f5b8e0a5',
-    spotifyUrl: 'https://open.spotify.com/track/4kF4ZYJKfGpGurPQJV5Rtt', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/4E6RdcCWMiHTu7zy1VTNDo', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' 
   },
 
@@ -65,7 +65,7 @@ const musicas = [
     artista: 'Anitta, Mc Zaac', 
     genero: 'funk', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273854ba82366475ddee4d54c5f',
-    spotifyUrl: 'https://open.spotify.com/track/2HcXzqQP9YEjsKX9kKRHwa', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/6u0EAxf1OJTLS7CvInuNd7, 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' 
   },
   { 
@@ -73,7 +73,7 @@ const musicas = [
     artista: 'Pabllo Vittar', 
     genero: 'funk', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273a9798c6a7cbae7545109cf3c',
-    spotifyUrl: 'https://open.spotify.com/track/2uYFUQP5REqXUQQJkpwBXH', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/7yYsyXQa2JgbyL9fkEiUNt', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' 
   },
   { 
@@ -81,7 +81,7 @@ const musicas = [
     artista: 'MC Loma', 
     genero: 'funk', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273a8defad965ba838224f730f7',
-    spotifyUrl: 'https://open.spotify.com/track/2uYFUQP5REqXUQQJkpwBXH', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/3xhgrkZuPHxJBHwyBl5sOs', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' 
   },
   { 
@@ -89,7 +89,7 @@ const musicas = [
     artista: 'MC João', 
     genero: 'funk', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273e11a8b5efc8852e0e683ae99',
-    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/5nwkZfrwFGehnwYA1Z664w', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' 
   },
 
@@ -98,7 +98,7 @@ const musicas = [
     artista: 'Xamã', 
     genero: 'rap', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273ebbf39cc4a2c82af76e41d39',
-    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/0NBgyml7T0IvUNbXIkcSpH', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3' 
   },
   { 
@@ -115,7 +115,7 @@ const musicas = [
     artista: 'Matuê', 
     genero: 'trap', 
     cover: 'https://i.scdn.co/image/ab67616d0000b273a1d98442d9c3482e769ee8d7',
-    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/6bTdZ7xfKp3NqqADJ8HLyj', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3' 
   },
   { 
@@ -123,7 +123,7 @@ const musicas = [
     artista: 'Teto', 
     genero: 'trap', 
     cover: 'https://i.scdn.co/image/ab67616d0000b2735948e887f9558d1ea8bb0766',
-    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    spotifyUrl: 'https://open.spotify.com/intl-pt/track/07AQkmp456NpEnT8HR7WLy', 
     previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3' 
   },
 ];
@@ -277,28 +277,21 @@ function renderMusicas(filterGenre = 'all', query = ''){
       </div>
     `;
 
-    const btnLocal = a.querySelector('.play-btn-local');
-    btnLocal.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      loadTrack(globalIndex, true);
-    });
-
-    const favBtn = a.querySelector('.favorite-btn');
+    const favBtn = div.querySelector('.favorite-btn');
     favBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       toggleFavorito(globalIndex);
     });
 
-    const playlistBtn = a.querySelector('.playlist-btn');
+    const playlistBtn = div.querySelector('.playlist-btn');
     playlistBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       togglePlaylist(globalIndex);
     });
 
-    container.appendChild(a);
+    container.appendChild(div);
   });
 }
 

@@ -28,11 +28,12 @@ header h1{margin:0 0 8px 0}
 /* grid responsivo para os cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 24px;
   padding: 24px;
   max-width: 1400px;
   margin: 0 auto;
+  align-items: start;
 }
 
 /* Card estilo Spotify */
@@ -304,6 +305,8 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
   overflow: hidden;
   margin-bottom: 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  cursor: pointer;
+  background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
 }
 
 .musica-img img {
@@ -323,12 +326,13 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
 }
 
 .musica-card:hover .hover-overlay {
@@ -428,20 +432,27 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
   color: #fff;
 }
 
-.play-btn-local {
+.play-overlay-btn {
   background: linear-gradient(90deg, var(--card-start), var(--card-end));
   color: #fff;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(29,185,84,0.2);
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.musica-card:hover .play-overlay-btn {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .play-btn-local:hover {
