@@ -1,5 +1,31 @@
 // app.js - dados falsos, renderização DOM e player simples
 
+// Gerenciamento de favoritos e playlist
+let favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+let playlist = JSON.parse(localStorage.getItem('playlist') || '[]');
+
+function toggleFavorito(musicaIndex) {
+  const index = favoritos.indexOf(musicaIndex);
+  if (index === -1) {
+    favoritos.push(musicaIndex);
+  } else {
+    favoritos.splice(index, 1);
+  }
+  localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  renderMusicas(currentFilter, currentSearch);
+}
+
+function togglePlaylist(musicaIndex) {
+  const index = playlist.indexOf(musicaIndex);
+  if (index === -1) {
+    playlist.push(musicaIndex);
+  } else {
+    playlist.splice(index, 1);
+  }
+  localStorage.setItem('playlist', JSON.stringify(playlist));
+  renderMusicas(currentFilter, currentSearch);
+}
+
 const musicas = [
   { titulo: 'Romance Sertanejo', artista: 'Dupla A', genero: 'sertanejo', cover: 'genres/sertanejo/cover1.svg', spotifyUrl: 'https://open.spotify.com/search/romance%20sertanejo', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
   { titulo: 'Balada na Fazenda', artista: 'Dupla B', genero: 'sertanejo', cover: 'genres/sertanejo/cover2.svg', spotifyUrl: 'https://open.spotify.com/search/sertanejo', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
@@ -111,9 +137,23 @@ document.addEventListener('click', (e)=>{
 function renderMusicas(filterGenre = 'all', query = ''){
   const container = document.getElementById('catalog');
   container.innerHTML = '';
+  currentFilter = filterGenre;
+  currentSearch = query;
 
+  let lista = musicas;
+  
+  // Filtra por seção especial (favoritos/playlist) ou por gênero
+  if (filterGenre === 'favorites') {
+    lista = musicas.filter((_, index) => favoritos.includes(index));
+  } else if (filterGenre === 'playlist') {
+    lista = musicas.filter((_, index) => playlist.includes(index));
+  } else if (filterGenre !== 'all') {
+    lista = musicas.filter(m => m.genero === filterGenre);
+  }
+
+  // Aplica filtro de busca
   const q = query.trim().toLowerCase();
-  const lista = musicas.filter(m => (filterGenre === 'all' || m.genero === filterGenre) && (q === '' || (m.titulo + ' ' + m.artista).toLowerCase().includes(q)));
+  lista = lista.filter(m => q === '' || (m.titulo + ' ' + m.artista).toLowerCase().includes(q));
 
   if(lista.length === 0){
     container.innerHTML = '<div class="empty">Nenhuma música encontrada.</div>';
@@ -128,13 +168,24 @@ function renderMusicas(filterGenre = 'all', query = ''){
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
 
+    const isFavorito = favoritos.includes(globalIndex);
+    const isInPlaylist = playlist.includes(globalIndex);
+
     a.innerHTML = `
       <div class="thumb"><img src="${m.cover}" alt="${m.titulo} capa" onerror="this.src='https://via.placeholder.com/72/222/fff?text=?'"></div>
       <div class="musica-info">
         <div class="titulo">${m.titulo}</div>
         <div class="artista">${m.artista}</div>
       </div>
-      <div class="play-wrapper"><button class="play-btn-local">▶</button></div>
+      <div class="card-actions">
+        <button class="action-btn favorite-btn ${isFavorito ? 'active' : ''}" title="${isFavorito ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}">
+          ${isFavorito ? '♥' : '♡'}
+        </button>
+        <button class="action-btn playlist-btn ${isInPlaylist ? 'active' : ''}" title="${isInPlaylist ? 'Remover da playlist' : 'Adicionar à playlist'}">
+          ${isInPlaylist ? '✓' : '+'}
+        </button>
+        <button class="play-btn-local">▶</button>
+      </div>
     `;
 
     const btnLocal = a.querySelector('.play-btn-local');
@@ -142,6 +193,20 @@ function renderMusicas(filterGenre = 'all', query = ''){
       e.preventDefault();
       e.stopPropagation();
       loadTrack(globalIndex, true);
+    });
+
+    const favBtn = a.querySelector('.favorite-btn');
+    favBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleFavorito(globalIndex);
+    });
+
+    const playlistBtn = a.querySelector('.playlist-btn');
+    playlistBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      togglePlaylist(globalIndex);
     });
 
     container.appendChild(a);

@@ -10,11 +10,17 @@
 *{box-sizing:border-box}
 html,body{height:100%;}
 body{
-  margin:0;
-  padding:24px;
+  margin: 0;
+  padding: 0;
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   background: linear-gradient(180deg,#070708 0%, #0f1112 100%);
-  color:var(--muted);
+  color: var(--muted);
+  min-height: 100vh;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
 }
 header h1{margin:0 0 8px 0}
 .subtitle{margin:4px 0 16px 0; color:rgba(255,255,255,0.7)}
@@ -55,13 +61,98 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
  }
 
 /* Layout base */
-.site-header{display:flex;align-items:start;gap:24px;margin-bottom:18px}
-.brand{display:flex;align-items:center;gap:32px}
-.brand h1{margin:0;font-size:1.4rem}
-.brand .lead{margin:0;color:rgba(255,255,255,0.7)}
-.genre-nav{display:flex;gap:8px;flex-direction:column}
-.genre-nav button{background:var(--glass);border:0;padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer}
-.genre-nav button.active{background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));box-shadow:0 6px 18px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.04)}
+.sidebar {
+  width: 250px;
+  background: rgba(0,0,0,0.2);
+  padding: 24px;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  margin-left: 250px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.brand {
+  margin-bottom: 32px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.genre-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.genre-nav button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.genre-nav button:hover {
+  background: rgba(255,255,255,0.05);
+  transform: translateX(4px);
+}
+
+.genre-nav button.active {
+  background: linear-gradient(90deg, var(--card-start), var(--card-end));
+  border: none;
+  color: #fff;
+  font-weight: 500;
+}
+
+.genre-nav button.special-btn {
+  margin-top: 8px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.genre-nav button.special-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
+.genre-nav button.special-btn {
+  background: linear-gradient(90deg, var(--card-start), var(--card-end));
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.genre-nav button.special-btn .icon {
+  font-size: 1.1em;
+}
+.genre-nav button.special-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
 .controls input{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);min-width:200px}
 
 /* Player styles */
@@ -86,15 +177,70 @@ footer{margin-top:22px; color:rgba(255,255,255,0.6)}
 .musica-info{display:flex;flex-direction:column}
 .musica-info .titulo{font-weight:700;font-size:1rem}
 .musica-info .artista{font-size:0.9rem;opacity:0.9}
-.play-btn{margin-left:auto;background:var(--accent);color:#050505;padding:8px 12px;border-radius:8px;font-weight:700;border:0;cursor:pointer}
+.card-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.action-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+}
+
+.action-btn.active {
+  background: linear-gradient(90deg, var(--card-start), var(--card-end));
+  border-color: transparent;
+  color: #fff;
+}
+
+.play-btn-local {
+  background: var(--card-start);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+}
 
 footer{margin-top:28px;color:rgba(255,255,255,0.6)}
 
 @media (max-width:768px){
-  .site-header{flex-direction:column}
-  .brand{flex-direction:column;align-items:flex-start;gap:8px}
-  .controls input{width:100%}
-  .genre-nav{flex-direction:row;flex-wrap:wrap}
+  .sidebar {
+    transform: translateX(-100%);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 16px;
+  }
+  
+  .site-header {
+    flex-direction: column;
+  }
+  
+  .controls input {
+    width: 100%;
+  }
 }
   
 @media (max-width:720px){

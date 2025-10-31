@@ -7,18 +7,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <h1>Music Play</h1>
-      <p class="lead">Catálogo de gêneros — clique para abrir no Spotify ou toque amostras locais</p>
-    </div>
-    <nav class="genre-nav" aria-label="Filtrar por gênero">
-      <button data-genre="all" class="active">Todas</button>
-      <button data-genre="sertanejo">Sertanejo</button>
-      <button data-genre="funk">Funk</button>
-      <button data-genre="rap">Rap</button>
-      <button data-genre="trap">Trap</button>
+  <div class="app-layout">
+    <nav class="sidebar" aria-label="Menu principal">
+      <div class="brand">
+        <h1>Music Play</h1>
+      </div>
+      <div class="genre-nav" aria-label="Filtrar por gênero">
+        <button data-genre="all" class="active">Todas</button>
+        <button data-genre="sertanejo">Sertanejo</button>
+        <button data-genre="funk">Funk</button>
+        <button data-genre="rap">Rap</button>
+        <button data-genre="trap">Trap</button>
+        <button data-section="favorites" class="special-btn"><span class="icon">♥</span> Meus Favoritos</button>
+        <button data-section="playlist" class="special-btn"><span class="icon">▶</span> Minha Playlist</button>
+      </div>
     </nav>
+    
+    <main class="main-content">
+      <header class="site-header">
     <div class="controls">
       <input id="search" placeholder="Buscar título ou artista" aria-label="Buscar música"/>
     </div>
@@ -64,18 +70,19 @@
       </div>
       <button id="close-sub" class="close-sub">Fechar</button>
     </aside>
-  </main>
+      </main>
+    </div>
 
-  <footer>
-    <small>Projeto educativo — Do Zero ao Deploy. Consulte o README para instruções de deploy.</small>
-  </footer>
+    <footer>
+      <small>Projeto educativo — Do Zero ao Deploy. Consulte o README para instruções de deploy.</small>
+    </footer>
 
-  <!-- Bottom player controls (sticky) -->
-  <div id="bottom-player" class="bottom-player" aria-hidden="false">
-    <button id="prev-btn" title="Anterior">⏮</button>
-    <button id="play-btn" title="Play/Pausa">▶️</button>
-    <button id="next-btn" title="Próxima">⏭</button>
-  </div>
+    <!-- Bottom player controls (sticky) -->
+    <div id="bottom-player" class="bottom-player" aria-hidden="false">
+      <button id="prev-btn" title="Anterior">⏮</button>
+      <button id="play-btn" title="Play/Pausa">▶️</button>
+      <button id="next-btn" title="Próxima">⏭</button>
+    </div>
 
   <script src="app.js"></script>
 </body>
