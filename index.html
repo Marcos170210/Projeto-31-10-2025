@@ -25,27 +25,23 @@
     
     <main class="main-content">
       <header class="site-header">
-    <div class="controls">
-      <input id="search" placeholder="Buscar título ou artista" aria-label="Buscar música"/>
-    </div>
-    <div class="header-actions">
-      <button id="subscription-btn" class="sub-btn">Assinatura</button>
-    </div>
-
-    <!-- Player: display do track (controls moved para baixo) -->
-    <div id="player" class="player" aria-label="Player de música">
-      <div class="player-left">
-        <div class="now">
-          <div id="track-title">—</div>
-          <div id="track-artist" class="small">—</div>
+        <!-- Player: display do track com controles integrados -->
+        <div id="player" class="player" aria-label="Player de música">
+          <div class="player-left">
+            <div class="now">
+              <div id="track-title">—</div>
+              <div id="track-artist" class="small">—</div>
+            </div>
+          </div>
+          <div class="player-controls">
+            <div class="controls">
+              <input id="search" placeholder="Buscar título ou artista" aria-label="Buscar música"/>
+            </div>
+            <button id="subscription-btn" class="sub-btn">Assinatura</button>
+          </div>
+          <audio id="audio" preload="none"></audio>
         </div>
-      </div>
-      <div style="margin-left:16px">
-        <select id="track-select" aria-label="Selecionar música"></select>
-      </div>
-      <audio id="audio" preload="none"></audio>
-    </div>
-  </header>
+      </header>
 
   <!-- Use <section> para agrupar conteúdo principal (boa prática e acessibilidade) -->
   <main>
@@ -77,13 +73,12 @@
       <small>Projeto educativo — Do Zero ao Deploy. Consulte o README para instruções de deploy.</small>
     </footer>
 
-    <!-- Bottom player controls (sticky) -->
-    <div id="bottom-player" class="bottom-player" aria-hidden="false">
-      <button id="prev-btn" title="Anterior">⏮</button>
-      <button id="play-btn" title="Play/Pausa">▶️</button>
-      <button id="next-btn" title="Próxima">⏭</button>
-    </div>
-
-  <script src="app.js"></script>
+  <!-- Bottom player controls (sticky) -->
+  <div id="bottom-player" class="bottom-player" aria-hidden="false">
+    <button id="prev-btn" title="Anterior">⏮</button>
+    <button id="play-btn" title="Play/Pausa">▶️</button>
+    <button id="next-btn" title="Próxima">⏭</button>
+    <select id="track-select" aria-label="Selecionar música"></select>
+  </div>  <script src="app.js"></script>
 </body>
 </html>
