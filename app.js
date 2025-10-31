@@ -27,21 +27,105 @@ function togglePlaylist(musicaIndex) {
 }
 
 const musicas = [
-  { titulo: 'Evidências', artista: 'Chitãozinho & Xororó', genero: 'sertanejo', cover: 'genres/sertanejo/cover1.svg', spotifyUrl: 'https://open.spotify.com/track/2Lh9FW5RWmMtbxzgOdQicS', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
-  { titulo: 'Boate Azul', artista: 'Bruno & Marrone', genero: 'sertanejo', cover: 'genres/sertanejo/cover2.svg', spotifyUrl: 'https://open.spotify.com/track/4W2A4OVZ0H9r0PF0ZuN4mC', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
-  { titulo: 'Esqueça-me se For Capaz', artista: 'Jorge & Mateus', genero: 'sertanejo', cover: 'genres/sertanejo/cover3.svg', spotifyUrl: 'https://open.spotify.com/track/4FSzJpXqFDtPtVtGZMqs4P', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
-  { titulo: 'Todo Mundo Vai Sofrer', artista: 'Marília Mendonça', genero: 'sertanejo', cover: 'genres/sertanejo/cover4.svg', spotifyUrl: 'https://open.spotify.com/track/4kF4ZYJKfGpGurPQJV5Rtt', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
+  { 
+    titulo: 'Evidências', 
+    artista: 'Chitãozinho & Xororó', 
+    genero: 'sertanejo', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273f9a9cbee6858e231f7c1daf7',
+    spotifyUrl: 'https://open.spotify.com/track/2Lh9FW5RWmMtbxzgOdQicS', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' 
+  },
+  { 
+    titulo: 'Boate Azul', 
+    artista: 'Bruno & Marrone', 
+    genero: 'sertanejo', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273c6b6bed8f619af34c858c254',
+    spotifyUrl: 'https://open.spotify.com/track/4W2A4OVZ0H9r0PF0ZuN4mC', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' 
+  },
+  { 
+    titulo: 'Esqueça-me se For Capaz', 
+    artista: 'Jorge & Mateus', 
+    genero: 'sertanejo', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273ffd5a4d45ac36515b2a06f9d',
+    spotifyUrl: 'https://open.spotify.com/track/4FSzJpXqFDtPtVtGZMqs4P', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' 
+  },
+  { 
+    titulo: 'Todo Mundo Vai Sofrer', 
+    artista: 'Marília Mendonça', 
+    genero: 'sertanejo', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273374058b1c48517c8f5b8e0a5',
+    spotifyUrl: 'https://open.spotify.com/track/4kF4ZYJKfGpGurPQJV5Rtt', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' 
+  },
 
-  { titulo: 'Vai Malandra', artista: 'Anitta, Mc Zaac', genero: 'funk', cover: 'genres/funk/cover1.svg', spotifyUrl: 'https://open.spotify.com/track/2HcXzqQP9YEjsKX9kKRHwa', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
-  { titulo: 'Amor de Que', artista: 'Pabllo Vittar', genero: 'funk', cover: 'genres/funk/cover2.svg', spotifyUrl: 'https://open.spotify.com/track/2uYFUQP5REqXUQQJkpwBXH', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
-  { titulo: 'Envolvimento', artista: 'MC Loma', genero: 'funk', cover: 'genres/funk/cover3.svg', spotifyUrl: 'https://open.spotify.com/track/2uYFUQP5REqXUQQJkpwBXH', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
-  { titulo: 'Baile de Favela', artista: 'MC João', genero: 'funk', cover: 'genres/funk/cover4.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' },
+  { 
+    titulo: 'Vai Malandra', 
+    artista: 'Anitta, Mc Zaac', 
+    genero: 'funk', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273854ba82366475ddee4d54c5f',
+    spotifyUrl: 'https://open.spotify.com/track/2HcXzqQP9YEjsKX9kKRHwa', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' 
+  },
+  { 
+    titulo: 'Amor de Que', 
+    artista: 'Pabllo Vittar', 
+    genero: 'funk', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273a9798c6a7cbae7545109cf3c',
+    spotifyUrl: 'https://open.spotify.com/track/2uYFUQP5REqXUQQJkpwBXH', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' 
+  },
+  { 
+    titulo: 'Envolvimento', 
+    artista: 'MC Loma', 
+    genero: 'funk', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273a8defad965ba838224f730f7',
+    spotifyUrl: 'https://open.spotify.com/track/2uYFUQP5REqXUQQJkpwBXH', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' 
+  },
+  { 
+    titulo: 'Baile de Favela', 
+    artista: 'MC João', 
+    genero: 'funk', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273e11a8b5efc8852e0e683ae99',
+    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' 
+  },
 
-  { titulo: 'Malvadão 3', artista: 'Xamã', genero: 'rap', cover: 'genres/rap/cover1.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3' },
-  { titulo: 'Volta por Cima', artista: 'L7NNON', genero: 'rap', cover: 'genres/rap/cover2.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3' },
+  { 
+    titulo: 'Malvadão 3', 
+    artista: 'Xamã', 
+    genero: 'rap', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273ebbf39cc4a2c82af76e41d39',
+    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3' 
+  },
+  { 
+    titulo: 'Volta por Cima', 
+    artista: 'L7NNON', 
+    genero: 'rap', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273e6a245e5e41f431f2c47cc5f',
+    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3' 
+  },
 
-  { titulo: 'Vampiro', artista: 'Matuê', genero: 'trap', cover: 'genres/trap/cover1.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3' },
-  { titulo: 'M4', artista: 'Teto', genero: 'trap', cover: 'genres/trap/cover2.svg', spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3' },
+  { 
+    titulo: 'Vampiro', 
+    artista: 'Matuê', 
+    genero: 'trap', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b273a1d98442d9c3482e769ee8d7',
+    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3' 
+  },
+  { 
+    titulo: 'M4', 
+    artista: 'Teto', 
+    genero: 'trap', 
+    cover: 'https://i.scdn.co/image/ab67616d0000b2735948e887f9558d1ea8bb0766',
+    spotifyUrl: 'https://open.spotify.com/track/6MDPO5VM7XvnZnXAzzK0hX', 
+    previewUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3' 
+  },
 ];
 
 // Player state
@@ -73,6 +157,7 @@ function loadTrack(idx, autoplay = false){
   trackTitle.textContent = m.titulo;
   trackArtist.textContent = m.artista;
   trackSelect.value = idx;
+  document.getElementById('current-track-image').src = m.cover;
   if(autoplay){
     audio.play().catch(()=>{});
     playBtn.textContent = '⏸';
